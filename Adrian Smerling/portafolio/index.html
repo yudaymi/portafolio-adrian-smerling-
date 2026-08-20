@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Personal</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span class="logo-mark">AS</span>
+                <span class="logo-text">Mi&nbsp;Portafolio</span>
+            </div>
+
+            <ul class="menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-mi">Sobre mí</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+            <a href="#contacto" class="btn-nav">Contactar</a>
+        </nav>
+    </header>
+
+
+    <!-- SECCIÓN PRINCIPAL -->
+    <section id="inicio" class="inicio">
+
+        <div class="inicio-texto">
+
+            <p class="eyebrow">Perfil profesional</p>
+
+            <h1>Adrian Smerling<span>.</span><br>Peguero cedano</h1>
+
+            <div class="regla-firma" aria-hidden="true"></div>
+
+            <h2>Estudiante de Ingeniería en Sistemas y Computación</h2>
+
+            <p class="inicio-desc">
+                Aquí podrás conocer mis habilidades, conocimientos y proyectos
+                desarrollados durante mi formación, con especial interés
+                en tecnología y ciberseguridad.
+            </p>
+
+            <div class="inicio-acciones">
+                <a href="#proyectos" class="btn">Ver mis proyectos</a>
+
+                <!-- BOTÓN DE ACCESO AL BLOG -->
+                <!-- CAMBIA ESTE ENLACE POR LA RUTA REAL DE TU BLOG -->
+                <a href="http://127.0.0.1:5500/blog/index.html" class="btn-blog">
+                    Acceder al Blog
+                </a>
+
+                <a href="#sobre-mi" class="btn-ghost">Sobre mí →</a>
+            </div>
+
+        </div>
+
+        <div class="inicio-foto">
+
+            <div class="foto-marco">
+                <img src="img/adriansmerlyng.png" alt="Fotografía personal">
+            </div>
+
+            <div class="foto-nota">
+                <strong>Especialista en Ciberseguridad</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE MÍ -->
+    <section id="sobre-mi" class="sobre-mi">
+
+        <div class="titulo-seccion">
+            <p class="eyebrow">Conóceme</p>
+            <h2>Sobre mí</h2>
+        </div>
+
+        <div class="sobre-contenedor">
+
+            <div class="tarjeta-datos">
+
+                <h3>Información</h3>
+
+                <div class="dato">
+                    <span>Nombre</span>
+                    <p>Adrian Smerling Peguero Cedano</p>
+                </div>
+
+                <div class="dato">
+                    <span>Matrícula</span>
+                    <p>24-MISN-2-014</p>
+                </div>
+
+                <div class="dato">
+                    <span>Carrera</span>
+                    <p>Ingeniería en Sistemas y Computación</p>
+                </div>
+
+                <div class="dato">
+                    <span>Área</span>
+                    <p>Ciberseguridad</p>
+                </div>
+
+            </div>
+
+
+            <div class="descripcion">
+
+                <h3>Perfil personal y profesional</h3>
+
+                <p>
+                   Soy estudiante de Ingeniería en Sistemas y Computación,
+                   con especial interés en las áreas de Redes y Ciberseguridad.
+                   Me interesa comprender el funcionamiento de las infraestructuras tecnológicas,
+                    la administración de redes y la protección de sistemas e información frente a amenazas digitales.
+                </p>
+
+                <p>
+                    Durante mi formación académica he desarrollado conocimientos en redes, sistemas, seguridad informática y programación,
+                    además de trabajar con diferentes herramientas y tecnologías relacionadas con mi carrera.
+                </p>
+
+                <p>
+                    Mi objetivo es continuar fortaleciendo mis conocimientos en administración y seguridad de redes, ciberseguridad y
+                    protección de sistemas, adquiriendo experiencia práctica que me permita desarrollarme profesionalmente en el área de tecnología.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HABILIDADES -->
+    <section class="habilidades">
+
+        <div class="titulo-seccion">
+            <p class="eyebrow">Mis conocimientos</p>
+            <h2>Habilidades</h2>
+        </div>
+
+        <div class="habilidades-contenedor">
+
+            <div class="habilidad">
+                <span class="habilidad-marca">CRYPT</span>
+                <h3>Criptografía</h3>
+                <p>
+                    Fundamentos de cifrado, funciones hash y protocolos
+                    criptográficos utilizados para proteger la
+                    confidencialidad e integridad de la información.
+                </p>
+            </div>
+
+            <div class="habilidad">
+                <span class="habilidad-marca">CLOUD</span>
+                <h3>Seguridad en la Nube</h3>
+                <p>
+                    Configuración segura de servicios en la nube,
+                    gestión de accesos y buenas prácticas para proteger
+                    datos e infraestructuras en entornos cloud.
+                </p>
+            </div>
+
+            <div class="habilidad">
+                <span class="habilidad-marca">GRC</span>
+                <h3>Gobierno, Riesgo y Cumplimiento</h3>
+                <p>
+                    Identificación y gestión de riesgos, políticas de
+                    seguridad y normativas que guían la protección
+                    de la información en una organización.
+                </p>
+            </div>
+
+            <div class="habilidad">
+                <span class="habilidad-marca">INTEL</span>
+                <h3>Threat Intelligence</h3>
+                <p>
+                    Recolección y análisis de información sobre amenazas
+                    emergentes para anticipar riesgos y fortalecer
+                    la postura de seguridad.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="proyectos">
+
+        <div class="titulo-seccion">
+            <p class="eyebrow">Mi trabajo</p>
+            <h2>Proyectos</h2>
+        </div>
+
+        <div class="proyectos-contenedor">
+
+            <div class="proyecto-card">
+
+                <div class="proyecto-imagen">
+                    <div class="icono-proyecto">NET</div>
+                </div>
+
+                <div class="proyecto-info">
+
+                    <span class="etiqueta">Redes</span>
+
+                    <h3>Laboratorio de Redes y Seguridad</h3>
+
+                    <p>
+                        Configuración de una red simulada (routers, switches,
+                        VLANs) con enfoque en segmentación y control de
+                        acceso. Incluye documentación de los hallazgos, reglas
+                        de firewall aplicadas y buenas prácticas de hardening.
+                    </p>
+
+                    <!-- CAMBIA ESTE ENLACE POR EL DE TU PROYECTO -->
+                    <a href="#" class="btn-proyecto">
+                        Ver proyecto
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="proyecto-card">
+
+                <div class="proyecto-imagen">
+                    <div class="icono-proyecto">WEB</div>
+                </div>
+
+                <div class="proyecto-info">
+
+                    <span class="etiqueta">Portafolio</span>
+
+                    <h3>Portafolio Personal</h3>
+
+                    <p>
+                        Sitio web creado para presentar mi información
+                        personal, conocimientos y proyectos realizados
+                        durante mi formación académica.
+                    </p>
+
+                    <a href="http://127.0.0.1:5500/blog/index.html" class="btn-proyecto">
+                        Ver proyecto
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contacto">
+
+        <div class="contacto-contenedor">
+
+            <div class="contacto-texto">
+                <p class="eyebrow eyebrow--claro">Información</p>
+                <h2>¿Quieres conocer más sobre mi trabajo?</h2>
+
+                <p>
+                    Puedes utilizar esta sección para colocar tu correo,
+                    teléfono, redes sociales o cualquier otro medio de contacto.
+                </p>
+            </div>
+
+            <div class="contacto-datos">
+                <div class="contacto-linea">
+                    <span>Email</span>
+                    <p>apeguerocedano@gmail.com</p>
+                </div>
+                <div class="contacto-linea">
+                    <span>Teléfono</span>
+                    <p>829-913-5221</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>© Adrian Smerling Peguero Cedano— Portafolio Personal</p>
+    </footer>
+
+</body>
+</html>
