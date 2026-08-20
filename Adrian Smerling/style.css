@@ -1,0 +1,603 @@
+/* ==================================================
+   ACCESO AL BLOG — DISEÑO "AURORA GLASS"
+   Fondo de puntos animado + tarjeta glassmorphism
+================================================== */
+
+:root {
+    --violet: #8b5cf6;
+    --violet-deep: #5b21b6;
+    --magenta: #d946ef;
+    --bg: #050308;
+}
+
+html,
+body {
+    background-color: var(--bg);
+    min-height: 100%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+
+    /* FONDO DE PUNTOS EN LUGAR DE CUADRÍCULA DE LÍNEAS */
+    background-image: radial-gradient(
+        rgba(139, 92, 246, 0.35) 1.4px,
+        transparent 1.4px
+    );
+    background-size: 26px 26px;
+    animation: dotsDrift 20s linear infinite;
+}
+
+@keyframes dotsDrift {
+    0%   { background-position: 0 0; }
+    100% { background-position: 260px 130px; }
+}
+
+
+/* BLOBS DE LUZ FLOTANTES DETRÁS DE TODO */
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    z-index: 0;
+
+    width: 480px;
+    height: 480px;
+
+    border-radius: 50%;
+    filter: blur(110px);
+
+    pointer-events: none;
+}
+
+body::before {
+    top: -120px;
+    left: -140px;
+    background: rgba(139, 92, 246, 0.35);
+    animation: blobFloat 9s ease-in-out infinite;
+}
+
+body::after {
+    bottom: -160px;
+    right: -140px;
+    background: rgba(217, 70, 239, 0.28);
+    animation: blobFloat 11s ease-in-out infinite reverse;
+}
+
+@keyframes blobFloat {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    50%      { transform: translate(40px, -30px) scale(1.15); }
+}
+
+
+/* ==================================================
+   TARJETA PRINCIPAL — GLASS + ESQUINA CORTADA
+================================================== */
+
+.blog-showcase {
+    position: relative;
+    z-index: 2;
+
+    display: grid;
+    grid-template-columns: 1fr 0.9fr;
+    align-items: center;
+    gap: 50px;
+
+    width: 100%;
+    max-width: 1150px;
+    margin-top: 40px;
+    padding: 55px;
+
+    background: rgba(20, 10, 32, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid rgba(139, 92, 246, 0.25);
+
+    /* Esquina superior derecha cortada — forma distintiva */
+    clip-path: polygon(
+        0 0,
+        calc(100% - 70px) 0,
+        100% 70px,
+        100% 100%,
+        0 100%
+    );
+    border-radius: 22px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        inset 0 0 60px rgba(139, 92, 246, 0.05);
+
+    overflow: hidden;
+}
+
+
+/* BORDE DE LUZ GIRATORIO */
+
+.blog-showcase::before {
+    content: "";
+
+    position: absolute;
+    inset: -2px;
+
+    background: conic-gradient(
+        from 0deg,
+        transparent 0%,
+        var(--violet) 8%,
+        transparent 18%
+    );
+
+    animation: rotateBorder 5s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotateBorder {
+    to { transform: rotate(360deg); }
+}
+
+
+/* TACHÓN DECORATIVO EN LA ESQUINA CORTADA */
+
+.blog-showcase::after {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    width: 70px;
+    height: 70px;
+
+    background: linear-gradient(135deg, var(--magenta), var(--violet));
+    clip-path: polygon(100% 0, 0 0, 100% 100%);
+
+    pointer-events: none;
+}
+
+
+/* ==================================================
+   INFORMACIÓN IZQUIERDA
+================================================== */
+
+.blog-showcase-info {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* ETIQUETA */
+
+.blog-badge {
+    width: fit-content;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    margin-bottom: 24px;
+    padding: 9px 16px;
+
+    background: rgba(139, 92, 246, 0.12);
+    color: #e9d5ff;
+
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.blog-badge i {
+    color: var(--magenta);
+}
+
+
+/* PROYECTO / BLOG */
+
+.blog-project-number {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 12px;
+
+    color: #c4b5fd;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+}
+
+.blog-project-number::before {
+    content: "";
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--magenta), var(--violet));
+}
+
+
+/* TÍTULO CON GRADIENTE */
+
+.blog-showcase-info h3 {
+    margin: 0 0 22px;
+
+    color: #f5f3ff;
+
+    font-size: 44px;
+    font-weight: 800;
+
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+}
+
+.blog-showcase-info h3 span {
+    display: block;
+
+    background: linear-gradient(100deg, var(--violet), var(--magenta) 60%, #f472d0);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    background-size: 200% auto;
+    animation: gradientShift 4s ease-in-out infinite;
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% center; }
+    50%      { background-position: 100% center; }
+}
+
+
+/* DESCRIPCIÓN */
+
+.blog-showcase-info > p {
+    max-width: 480px;
+
+    margin: 0 0 26px;
+
+    color: #ada3c4;
+
+    font-size: 14.5px;
+    line-height: 1.85;
+}
+
+
+/* ==================================================
+   TECNOLOGÍAS
+================================================== */
+
+.blog-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+
+    margin-bottom: 32px;
+}
+
+.blog-tech span {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 8px 13px;
+
+    background: rgba(255, 255, 255, 0.03);
+    color: #e9e4f5;
+
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 30px;
+
+    font-size: 10.5px;
+    font-weight: 700;
+
+    transition: all 0.3s ease;
+}
+
+.blog-tech span:hover {
+    background: rgba(139, 92, 246, 0.18);
+    border-color: var(--violet);
+    transform: translateY(-2px);
+}
+
+.blog-tech span i {
+    color: var(--magenta);
+    font-size: 13px;
+}
+
+
+/* ==================================================
+   BOTÓN ACCEDER AL BLOG
+================================================== */
+
+.blog-main-button {
+    width: fit-content;
+
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    padding: 14px 18px 14px 22px;
+
+    background: linear-gradient(100deg, var(--violet-deep), var(--violet), var(--magenta));
+    background-size: 200% auto;
+
+    color: #ffffff !important;
+    text-decoration: none !important;
+
+    border-radius: 50px;
+
+    box-shadow: 0 12px 30px rgba(139, 92, 246, 0.4);
+
+    transition: background-position 0.5s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-main-button > span {
+    display: flex;
+    flex-direction: column;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.blog-main-button small {
+    margin-top: 2px;
+
+    color: #ede9fe;
+    opacity: 0.8;
+
+    font-size: 9px;
+    font-weight: 500;
+}
+
+.blog-main-button > i {
+    width: 36px;
+    height: 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 12px;
+
+    transition: transform 0.3s ease;
+}
+
+.blog-main-button:hover {
+    background-position: 100% center;
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(217, 70, 239, 0.45);
+}
+
+.blog-main-button:hover > i {
+    transform: translate(3px, -3px) rotate(8deg);
+}
+
+
+/* ==================================================
+   PRESENTACIÓN DERECHA — FOTO
+================================================== */
+
+.blog-visual {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+}
+
+
+/* MARCO — HEXAGONAL / DIAGONAL, NO RECTANGULAR CLÁSICO */
+
+.blog-photo-frame {
+    position: relative;
+
+    display: inline-block;
+    max-width: 100%;
+    padding: 6px;
+
+    background: linear-gradient(160deg, var(--violet), var(--magenta));
+
+    clip-path: polygon(
+        20px 0, 100% 0,
+        100% calc(100% - 20px), calc(100% - 20px) 100%,
+        0 100%, 0 20px
+    );
+    border-radius: 18px;
+
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+
+    animation: frameGlow 4s ease-in-out infinite;
+}
+
+@keyframes frameGlow {
+    0%, 100% { filter: brightness(1) saturate(1); }
+    50%      { filter: brightness(1.15) saturate(1.3); }
+}
+
+.blog-photo-frame img {
+    max-width: 100%;
+    max-height: 400px;
+
+    display: block;
+
+    background: var(--bg);
+
+    clip-path: polygon(
+        20px 0, 100% 0,
+        100% calc(100% - 20px), calc(100% - 20px) 100%,
+        0 100%, 0 20px
+    );
+}
+
+
+/* ==================================================
+   PROYECTO DISPONIBLE — FLOTANTE, ESTILO PÍLDORA
+================================================== */
+
+.blog-floating-card {
+    position: absolute;
+
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 11px 20px;
+
+    background: rgba(10, 5, 18, 0.85);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(139, 92, 246, 0.4);
+    border-radius: 50px;
+
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+
+    animation: floatCard 3s ease-in-out infinite;
+}
+
+@keyframes floatCard {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(-6px); }
+}
+
+.blog-floating-card > div {
+    width: 26px;
+    height: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(135deg, var(--violet), var(--magenta));
+    color: #ffffff;
+
+    border-radius: 50%;
+
+    font-size: 10px;
+}
+
+.blog-floating-card span {
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.blog-floating-card small {
+    display: block;
+
+    color: #b9aede;
+
+    font-size: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+/* ==================================================
+   TABLET
+================================================== */
+
+@media (max-width: 900px) {
+
+    .blog-showcase {
+        grid-template-columns: 1fr;
+        gap: 34px;
+        padding: 44px 36px;
+        clip-path: polygon(0 0, calc(100% - 50px) 0, 100% 50px, 100% 100%, 0 100%);
+    }
+
+    .blog-showcase::after {
+        width: 50px;
+        height: 50px;
+    }
+
+    .blog-showcase-info {
+        text-align: center;
+    }
+
+    .blog-badge,
+    .blog-main-button {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .blog-project-number {
+        justify-content: center;
+    }
+
+    .blog-showcase-info > p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .blog-tech {
+        justify-content: center;
+    }
+
+    .blog-visual {
+        max-width: 500px;
+        width: 100%;
+        margin: auto;
+        padding-bottom: 30px;
+    }
+}
+
+
+/* ==================================================
+   CELULAR
+================================================== */
+
+@media (max-width: 600px) {
+
+    .blog-showcase {
+        padding: 34px 22px 44px;
+        border-radius: 16px;
+    }
+
+    .blog-showcase-info h3 {
+        font-size: 32px;
+    }
+
+    .blog-main-button {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .blog-photo-frame img {
+        max-height: 260px;
+    }
+
+    .blog-floating-card {
+        bottom: -16px;
+    }
+}
